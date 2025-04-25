@@ -8,9 +8,8 @@ namespace CSVParser
         {
             var people = ParseCsv<Person>("people.csv");
             foreach (var person in people)
-            {
                 Console.WriteLine($"Name: {person.Name}, Age: {person.Age}");
-            }
+            
 
             //Test with a CSV file that has a different header order
             //var people = ParseCsv<Person>("people_header_error.csv");
@@ -72,6 +71,7 @@ namespace CSVParser
                         {
                             try
                             {
+                                // Handling Missing or Invalid Data
                                 var targetType = Nullable.GetUnderlyingType(property.PropertyType) ?? property.PropertyType;
                                 if (string.IsNullOrWhiteSpace(values[i]))
                                 {
