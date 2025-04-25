@@ -1,0 +1,31 @@
+﻿//{
+//    "compilerOptions": {
+//        "target": "es5",
+//        "module": "esnext",
+//        "lib": [ "dom", "dom.iterable", "esnext" ],
+//        "jsx": "react-jsx",
+//        "moduleResolution": "node",
+//        "allowJs": true,
+//        "esModuleInterop": true,
+//        "skipLibCheck": true,
+//        "forceConsistentCasingInFileNames": true,
+//        "strict": true
+//    },
+//    "include": [ "src/**/*" ]
+//}
+
+
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "esnext",
+        "jsx": "react",
+        "moduleResolution": "node",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "outDir": "./dist"
+    },
+    "include": [ "src/**/*" ]
+}
