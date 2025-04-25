@@ -12,6 +12,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="students.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="employees.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="products.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="people_invalid_data_types.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
