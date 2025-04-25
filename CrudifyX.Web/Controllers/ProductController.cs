@@ -41,6 +41,7 @@ namespace CrudifyX.Web.Controllers
         }
 
         [Route("/Product/Edit/{id}")]
+        [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
             var product = await _repository.GetProductByIdAsync(id);
@@ -48,7 +49,7 @@ namespace CrudifyX.Web.Controllers
             return View(product);
         }
 
-        [HttpPost]
+        [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
         [Route("/Product/Edit")]
         public async Task<IActionResult> Edit(Product product)
@@ -82,6 +83,30 @@ namespace CrudifyX.Web.Controllers
         {
             var products = await _repository.GetAllProductsAsync();
             return Ok(products);
+        }
+
+        [HttpPost("Create")]
+        public async Task<IActionResult> CreateReact([FromBody] Product product)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+            await _repository.InsertProductAsync(product);
+            return Ok();
+        }
+
+        [HttpPut("Edit/{id}")]
+        public async Task<IActionResult> EditReact(int id, [FromBody] Product product)
+        {
+            if (id != product.Id) return BadRequest("ID mismatch");
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+            await _repository.UpdateProductAsync(product);
+            return Ok();
+        }
+
+        [HttpDelete("Delete/{id}")]
+        public async Task<IActionResult> DeleteReact(int id)
+        {
+            await _repository.DeleteProductAsync(id);
+            return Ok();
         }
     }
 }
